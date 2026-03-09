@@ -45,7 +45,6 @@ export function ModalNovaTransacao({
     onFechar()
   }
 
-  // Formata enquanto digita: "14520" → "145,20"
   function handleValorChange(texto: string) {
     const numeros = texto.replace(/\D/g, "")
     const numero = parseInt(numeros || "0", 10)
@@ -56,7 +55,6 @@ export function ModalNovaTransacao({
   async function handleSalvar(e: React.FormEvent) {
     e.preventDefault()
     setErro("")
-
     if (!descricao || descricao.length < 3)
       return setErro("Descrição deve ter pelo menos 3 caracteres.")
     if (!valor || parseFloat(valor.replace(",", ".")) <= 0)
@@ -78,7 +76,6 @@ export function ModalNovaTransacao({
       onSucesso()
       onFechar()
     } catch (err: Error | unknown) {
-      console.error(err)
       setErro(err instanceof Error ? err.message : "Erro ao salvar transação.")
     } finally {
       setSalvando(false)
@@ -88,19 +85,20 @@ export function ModalNovaTransacao({
   if (!aberto) return null
 
   return (
-    // Overlay escuro que fecha o modal ao clicar fora
+    // Mobile: sobe da base | sm+: centralizado com padding
     <div
-      className="fixed inset-0 z-50 flex items-end justify-center bg-black/50 p-0 sm:items-center sm:p-4"
+      className="fixed inset-0 z-50 flex items-end justify-center bg-black/50 sm:items-center sm:p-6"
       onClick={handleFechar}
     >
-      {/* Modal — stopPropagation evita fechar ao clicar dentro */}
       <div
-        className="max-h-[90vh] w-full overflow-y-auto rounded-t-3xl bg-white p-6 sm:max-w-md sm:rounded-3xl"
+        className="max-h-[92vh] w-full overflow-y-auto rounded-t-3xl bg-white p-6 sm:max-w-md sm:rounded-3xl md:max-w-lg"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
         <div className="mb-6 flex items-center justify-between">
-          <h2 className="text-xl font-bold text-gray-900">Nova Transação</h2>
+          <h2 className="text-xl font-bold text-gray-900 sm:text-2xl">
+            Nova Transação
+          </h2>
           <button
             onClick={handleFechar}
             className="rounded-full bg-gray-100 p-2 transition-colors hover:bg-gray-200"
@@ -117,12 +115,12 @@ export function ModalNovaTransacao({
                 key={t}
                 type="button"
                 onClick={() => setTipo(t)}
-                className={`flex-1 rounded-xl py-3 text-sm font-semibold transition-colors ${
+                className={`flex-1 rounded-xl py-3 text-sm font-semibold transition-colors sm:py-3.5 sm:text-base ${
                   tipo === t
                     ? t === "RECEITA"
                       ? "bg-green-600 text-white"
                       : "bg-red-500 text-white"
-                    : "text-gray-500"
+                    : "text-gray-500 hover:text-gray-700"
                 }`}
               >
                 {t === "RECEITA" ? "↑ Receita" : "↓ Despesa"}
@@ -132,27 +130,27 @@ export function ModalNovaTransacao({
 
           {/* Descrição */}
           <div className="flex flex-col gap-1">
-            <label className="ml-1 text-sm font-medium text-gray-700">
+            <label className="ml-1 text-sm font-medium text-gray-700 sm:text-base">
               Descrição
             </label>
-            <div className="flex h-14 items-center gap-3 rounded-xl border border-gray-200 bg-gray-50 px-4 transition-colors focus-within:border-green-500">
+            <div className="flex h-14 items-center gap-3 rounded-xl border border-gray-200 bg-gray-50 px-4 transition-colors focus-within:border-green-500 sm:h-[58px]">
               <AlignLeft size={18} className="shrink-0 text-gray-400" />
               <input
                 type="text"
                 placeholder="Ex: Supermercado, Salário..."
                 value={descricao}
                 onChange={(e) => setDescricao(e.target.value)}
-                className="flex-1 bg-transparent text-gray-900 placeholder-gray-400 outline-none"
+                className="flex-1 bg-transparent text-sm text-gray-900 placeholder-gray-400 outline-none sm:text-base"
               />
             </div>
           </div>
 
           {/* Valor */}
           <div className="flex flex-col gap-1">
-            <label className="ml-1 text-sm font-medium text-gray-700">
+            <label className="ml-1 text-sm font-medium text-gray-700 sm:text-base">
               Valor (R$)
             </label>
-            <div className="flex h-14 items-center gap-3 rounded-xl border border-gray-200 bg-gray-50 px-4 transition-colors focus-within:border-green-500">
+            <div className="flex h-14 items-center gap-3 rounded-xl border border-gray-200 bg-gray-50 px-4 transition-colors focus-within:border-green-500 sm:h-[58px]">
               <DollarSign size={18} className="shrink-0 text-gray-400" />
               <input
                 type="text"
@@ -160,14 +158,14 @@ export function ModalNovaTransacao({
                 placeholder="0,00"
                 value={valor}
                 onChange={(e) => handleValorChange(e.target.value)}
-                className="flex-1 bg-transparent text-gray-900 placeholder-gray-400 outline-none"
+                className="flex-1 bg-transparent text-sm text-gray-900 placeholder-gray-400 outline-none sm:text-base"
               />
             </div>
           </div>
 
           {/* Categorias */}
           <div className="flex flex-col gap-2">
-            <label className="ml-1 text-sm font-medium text-gray-700">
+            <label className="ml-1 text-sm font-medium text-gray-700 sm:text-base">
               Categoria
             </label>
             <div className="flex flex-wrap gap-2">
@@ -176,7 +174,7 @@ export function ModalNovaTransacao({
                   key={cat.label}
                   type="button"
                   onClick={() => setCategoria(cat.label)}
-                  className={`flex items-center gap-1 rounded-full border px-4 py-2 text-sm font-medium transition-colors ${
+                  className={`flex items-center gap-1.5 rounded-full border px-3.5 py-1.5 text-sm font-medium transition-colors sm:px-4 sm:py-2 sm:text-base ${
                     categoria === cat.label
                       ? "border-green-600 bg-green-50 text-green-700"
                       : "border-gray-200 bg-white text-gray-600 hover:border-gray-300"
@@ -189,14 +187,16 @@ export function ModalNovaTransacao({
             </div>
           </div>
 
-          {/* Erro */}
-          {erro && <p className="text-center text-sm text-red-500">{erro}</p>}
+          {erro && (
+            <p className="text-center text-sm text-red-500 sm:text-base">
+              {erro}
+            </p>
+          )}
 
-          {/* Botão salvar */}
           <button
             type="submit"
             disabled={salvando}
-            className={`mt-2 h-14 rounded-xl text-base font-bold text-white transition-colors disabled:opacity-60 ${
+            className={`mt-2 h-14 rounded-xl text-base font-bold text-white transition-colors disabled:opacity-60 sm:h-[58px] sm:text-lg ${
               tipo === "RECEITA"
                 ? "bg-green-600 hover:bg-green-700"
                 : "bg-red-500 hover:bg-red-600"
