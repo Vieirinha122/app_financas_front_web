@@ -4,7 +4,7 @@ import { AuthProvider } from "./context/AuthContext"
 import { LayoutProvider } from "@/context/LayoutContex"
 import { useAuth } from "./lib/useAuth"
 import { LoginScreen } from "./screens/Login/LoginScreen"
-import { HomeScreen } from "./screens/HomeScreen"
+import { HomeScreen } from "./screens/Home/HomeScreen"
 import { ExtratoScreen } from "./screens/ExtratoScreen"
 import { SplashScreen } from "@/components/SplashScrenn"
 
