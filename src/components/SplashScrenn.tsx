@@ -15,11 +15,8 @@ export function SplashScreen() {
         </div>
 
         <h1 className="text-3xl font-bold tracking-tight text-slate-800">
-          ÓRBITA
-        </h1>
-        <p className="mt-2 text-sm font-medium tracking-widest text-slate-500 uppercase">
           Finanças Pessoais
-        </p>
+        </h1>
       </motion.div>
 
       <div className="absolute bottom-12">
