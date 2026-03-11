@@ -120,9 +120,6 @@ export function ExtratoMobile({ state, actions }: ExtratoViewProps) {
             <p className="text-base font-bold text-gray-900">
               {fmt(totalReceitas)}
             </p>
-            <p className="mt-0.5 text-xs font-semibold text-[#00D084]">
-              +12% este mês
-            </p>
           </div>
           <div className="rounded-2xl bg-white p-4 shadow-sm">
             <div className="mb-1.5 flex items-center gap-1.5">
@@ -133,9 +130,6 @@ export function ExtratoMobile({ state, actions }: ExtratoViewProps) {
             </div>
             <p className="text-base font-bold text-gray-900">
               {fmt(totalDespesas)}
-            </p>
-            <p className="mt-0.5 text-xs font-semibold text-red-400">
-              -5% este mês
             </p>
           </div>
         </div>

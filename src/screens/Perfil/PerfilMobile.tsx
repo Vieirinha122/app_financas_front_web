@@ -138,7 +138,7 @@ export function PerfilMobile({ state, actions }: PerfilViewProps) {
                     <Input
                       value={nome}
                       onChange={(e) => actions.setNome(e.target.value)}
-                      className="h-11 rounded-xl border-gray-100 bg-gray-50 pl-9 text-sm"
+                      className="h-11 rounded-xl border-gray-100 bg-gray-50 pl-9 text-sm text-black"
                       placeholder="Seu nome"
                     />
                   </div>
@@ -157,7 +157,7 @@ export function PerfilMobile({ state, actions }: PerfilViewProps) {
                       type="email"
                       value={email}
                       onChange={(e) => actions.setEmail(e.target.value)}
-                      className="h-11 rounded-xl border-gray-100 bg-gray-50 pl-9 text-sm"
+                      className="h-11 rounded-xl border-gray-100 bg-gray-50 pl-9 text-sm text-black"
                       placeholder="seu@email.com"
                     />
                   </div>
