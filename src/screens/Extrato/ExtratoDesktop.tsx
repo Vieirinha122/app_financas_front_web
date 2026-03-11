@@ -72,7 +72,6 @@ export function ExtratoDesktop({ state, actions }: ExtratoViewProps) {
             <p className="text-2xl font-bold text-gray-900">
               {fmt(totalReceitas)}
             </p>
-            <span className="text-sm font-semibold text-[#00D084]">+12%</span>
           </div>
           <div className="mt-3 h-1.5 w-full overflow-hidden rounded-full bg-gray-100">
             <div className="h-full w-3/5 rounded-full bg-[#00D084]" />
@@ -91,7 +90,6 @@ export function ExtratoDesktop({ state, actions }: ExtratoViewProps) {
             <p className="text-2xl font-bold text-gray-900">
               {fmt(totalDespesas)}
             </p>
-            <span className="text-sm font-semibold text-red-400">-5%</span>
           </div>
           <div className="mt-3 h-1.5 w-full overflow-hidden rounded-full bg-gray-100">
             <div className="h-full w-2/5 rounded-full bg-red-400" />

@@ -7,6 +7,7 @@ import { LoginScreen } from "./screens/Login/LoginScreen"
 import { HomeScreen } from "./screens/Home/HomeScreen"
 import { ExtratoScreen } from "./screens/Extrato/ExtratoScreen"
 import { SplashScreen } from "@/components/SplashScrenn"
+import { PerfilScreen } from "./screens/Perfil/PerfilScreen"
 
 function RotaProtegida({ children }: { children: React.ReactNode }) {
   const { token } = useAuth()
@@ -37,8 +38,7 @@ function AppRoutes() {
         path="/perfil"
         element={
           <RotaProtegida>
-            {/* PerfilScreen */}
-            <div />
+            <PerfilScreen />
           </RotaProtegida>
         }
       />
