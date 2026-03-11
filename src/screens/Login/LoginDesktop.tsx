@@ -114,7 +114,7 @@ export function LoginDesktop({ state, actions }: LoginViewProps) {
           )}
 
           <Button
-            className="flex h-14 w-full items-center justify-center gap-2 rounded-xl bg-[#00D084] text-base font-bold text-white transition-all hover:bg-[#00B875]"
+            className="flex h-14 w-full cursor-pointer items-center justify-center gap-2 rounded-xl bg-[#00D084] text-base font-bold text-white transition-all hover:bg-[#00B875]"
             disabled={state.carregando}
           >
             Entrar <ArrowRight size={20} />

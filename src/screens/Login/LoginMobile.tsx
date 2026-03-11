@@ -10,8 +10,8 @@ export function LoginMobile({ state, actions }: LoginViewProps) {
 
   return (
     <div className="flex min-h-screen flex-col bg-white px-8 py-12">
-      <header className="mb-5 text-center">
-        <div className="mt-2 flex justify-center">
+      <header className="mb-1 text-center">
+        <div className="flex justify-center">
           <div className="mb-2 rounded-xl bg-[#00D084] p-2 shadow-lg shadow-[#00D084]/30">
             <Wallet className="text-white" size={40} />
           </div>
@@ -27,7 +27,6 @@ export function LoginMobile({ state, actions }: LoginViewProps) {
             Acesse sua conta para continuar sua jornada
           </p>
         </div>
-
         <form onSubmit={actions.handleLogin} className="space-y-6">
           {/* Email */}
           <div className="space-y-2">
@@ -41,7 +40,7 @@ export function LoginMobile({ state, actions }: LoginViewProps) {
                 placeholder="seuemail@exemplo.com"
                 value={state.email}
                 onChange={(e) => actions.setEmail(e.target.value)}
-                className="h-16 rounded-2xl border-gray-100 bg-white pl-12 text-lg text-black shadow-sm placeholder:text-black focus-visible:ring-[#00D084]"
+                className="text-md h-16 rounded-2xl border-gray-100 bg-white pl-12 text-black shadow-sm placeholder:text-black focus-visible:ring-[#00D084]"
               />
             </div>
           </div>
@@ -59,7 +58,7 @@ export function LoginMobile({ state, actions }: LoginViewProps) {
                 placeholder="........"
                 value={state.senha}
                 onChange={(e) => actions.setSenha(e.target.value)}
-                className="h-16 rounded-2xl border-gray-100 bg-white pr-12 pl-12 text-2xl text-black shadow-sm placeholder:text-black focus-visible:ring-[#00D084]"
+                className="text-md h-16 rounded-2xl border-gray-100 bg-white pr-12 pl-12 text-black shadow-sm placeholder:text-black focus-visible:ring-[#00D084]"
               />
               <button
                 type="button"
@@ -102,17 +101,16 @@ export function LoginMobile({ state, actions }: LoginViewProps) {
             )}
           </Button>
         </form>
+        <div className="mt-5 text-center text-gray-500">
+          Não tem uma conta?{" "}
+          <span
+            className="cursor-pointer font-bold text-[#00D084]"
+            onClick={() => navigate("/register")}
+          >
+            Cadastre-se
+          </span>
+        </div>
       </main>
-
-      <footer className="mt-10 text-center text-gray-500">
-        Não tem uma conta?{" "}
-        <span
-          className="cursor-pointer font-bold text-[#00D084]"
-          onClick={() => navigate("/register")}
-        >
-          Cadastre-se
-        </span>
-      </footer>
     </div>
   )
 }

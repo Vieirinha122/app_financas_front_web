@@ -5,7 +5,7 @@ import { LayoutProvider } from "@/context/LayoutContex"
 import { useAuth } from "./lib/useAuth"
 import { LoginScreen } from "./screens/Login/LoginScreen"
 import { HomeScreen } from "./screens/Home/HomeScreen"
-import { ExtratoScreen } from "./screens/ExtratoScreen"
+import { ExtratoScreen } from "./screens/Extrato/ExtratoScreen"
 import { SplashScreen } from "@/components/SplashScrenn"
 
 function RotaProtegida({ children }: { children: React.ReactNode }) {

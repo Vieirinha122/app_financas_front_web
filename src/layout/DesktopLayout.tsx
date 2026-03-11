@@ -24,7 +24,7 @@ export function DesktopLayout({ children }: DesktopLayoutProps) {
         <div className="mx-auto flex max-w-7xl items-center justify-between px-8 py-4">
           {/* Logo */}
           <div
-            className="flex cursor-pointer items-center gap-2.5"
+            className="flex items-center gap-2.5"
             onClick={() => navigate("/home")}
           ></div>
 
@@ -36,7 +36,7 @@ export function DesktopLayout({ children }: DesktopLayoutProps) {
                 <button
                   key={item.path}
                   onClick={() => navigate(item.path)}
-                  className={`rounded-xl px-4 py-2 text-sm font-medium transition-colors ${
+                  className={`cursor-pointer rounded-xl px-4 py-2 text-sm font-medium transition-colors ${
                     ativo
                       ? "text-[#00D084]"
                       : "text-gray-500 hover:bg-gray-100 hover:text-gray-900"

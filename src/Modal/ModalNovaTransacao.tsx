@@ -40,7 +40,7 @@ export function ModalNovaTransacao({ aberto, onFechar, onSucesso }: Props) {
 
   const [tipo, setTipo] = useState<"RECEITA" | "DESPESA">("DESPESA")
   const [descricao, setDescricao] = useState("")
-  const [valorRaw, setValorRaw] = useState("") // dígitos sem pontuação
+  const [valorRaw, setValorRaw] = useState("")
   const [categoria, setCategoria] = useState("")
   const [erro, setErro] = useState("")
   const [salvando, setSalvando] = useState(false)
@@ -75,7 +75,7 @@ export function ModalNovaTransacao({ aberto, onFechar, onSucesso }: Props) {
   function pressDigito(d: string) {
     setValorRaw((prev) => {
       const novo = (prev + d).replace(/^0+/, "")
-      return novo.length > 10 ? prev : novo // limita a 9.999.999,99
+      return novo.length > 10 ? prev : novo
     })
   }
 
@@ -222,7 +222,7 @@ export function ModalNovaTransacao({ aberto, onFechar, onSucesso }: Props) {
           key={d}
           type="button"
           onClick={() => pressDigito(d)}
-          className="flex h-16 items-center justify-center rounded-2xl bg-gray-50 text-2xl font-semibold text-gray-800 active:bg-gray-200"
+          className="flex h-12 items-center justify-center rounded-2xl bg-gray-50 text-2xl font-semibold text-gray-800 active:bg-gray-200"
         >
           {d}
         </button>
@@ -232,14 +232,14 @@ export function ModalNovaTransacao({ aberto, onFechar, onSucesso }: Props) {
       <button
         type="button"
         onClick={() => pressDigito("0")}
-        className="flex h-16 items-center justify-center rounded-2xl bg-gray-50 text-2xl font-semibold text-gray-800 active:bg-gray-200"
+        className="flex h-12 items-center justify-center rounded-2xl bg-gray-50 text-2xl font-semibold text-gray-800 active:bg-gray-200"
       >
         0
       </button>
       <button
         type="button"
         onClick={pressDelete}
-        className="flex h-16 items-center justify-center rounded-2xl bg-gray-50 text-gray-500 active:bg-gray-200"
+        className="flex h-12 items-center justify-center rounded-2xl bg-gray-50 text-gray-500 active:bg-gray-200"
       >
         <Delete size={22} />
       </button>

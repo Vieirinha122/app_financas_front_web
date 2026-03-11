@@ -11,6 +11,7 @@ import {
   ShoppingCart,
   ArrowDownLeft,
   ArrowUpRight,
+  Folder,
 } from "lucide-react"
 import {
   BarChart,
@@ -44,7 +45,6 @@ function TooltipCustom({
   )
 }
 
-// Ações rápidas do grid 2x2
 const ACOES = [
   {
     icone: <Target size={22} className="text-[#00D084]" />,
@@ -60,6 +60,11 @@ const ACOES = [
     icone: <FileText size={22} className="text-[#00D084]" />,
     label: "Extrato",
     path: "/extrato",
+  },
+  {
+    icone: <Folder size={22} className="text-[#00D084]" />,
+    label: "Categoria",
+    path: "/categorias",
   },
 ]
 
@@ -141,7 +146,7 @@ export function HomeDesktop({ state, actions }: HomeViewProps) {
               {/* Botão Nova Transação */}
               <button
                 onClick={() => actions.setModalAberto(true)}
-                className="flex items-center gap-2 rounded-2xl bg-[#00D084] px-5 py-3 text-sm font-bold text-white transition-colors hover:bg-[#00B875]"
+                className="flex cursor-pointer items-center gap-2 rounded-2xl bg-[#00D084] px-5 py-3 text-sm font-bold text-white transition-colors hover:bg-[#00B875]"
               >
                 <Plus size={18} />
                 Nova Transação
@@ -154,7 +159,7 @@ export function HomeDesktop({ state, actions }: HomeViewProps) {
                 <button
                   key={acao.label}
                   onClick={() => navigate(acao.path)}
-                  className="flex flex-col items-center justify-center gap-2 rounded-2xl bg-white p-4 shadow-sm transition-colors hover:bg-gray-50"
+                  className="flex cursor-pointer flex-col items-center justify-center gap-2 rounded-2xl bg-white p-4 shadow-sm transition-colors hover:bg-gray-50"
                 >
                   <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#e6faf3]">
                     {acao.icone}
