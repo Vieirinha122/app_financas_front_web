@@ -302,6 +302,8 @@ export function ModalNovaTransacao({ aberto, onFechar, onSucesso }: Props) {
           {/* handle */}
           <div className="mx-auto mb-4 h-1 w-10 rounded-full bg-gray-200" />
 
+          {toggleTipo}
+
           {cabecalho}
           {displayValor}
           {campoDescricao}
